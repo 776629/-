@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://cdnjs.loli.net/ajax/libs/mdui/0.4.1/css/mdui.min.css">
+        <script src="http://cdnjs.loli.net/ajax/libs/mdui/0.4.1/js/mdui.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+        <style type="text/css"> 
+                body{ padding-bottom:50px;}
+                .fixed{ position:fixed;bottom:0px;}  
+                .center
+                    {
+                        position: fixed;
+                        left: 0px;
+                        right: 0px;
+                        margin-left:auto;
+                        margin-right:auto;
+                    }
+        </style> 
+        <script type="text/javascript">
+            function onc() {
+                var div = document.getElementById('view');
+                div.scrollTop = div.scrollHeight;
+          }
+       </script>
+    </head>
+    <body onLoad="onc()">
+        <div class="mdui-container ">
+            <div class="mdui-toolbar mdui-color-indigo-600">
+                <span class="mdui-typo-title mdui-toolbar-spacer mdui-p-x-3">***********</span>
+                <!--<form name='form1' action="delete" method="POST">
+                    <a href='javascript:document.form1.submit();' class=" mdui-btn mdui-btn-icon mdui-p-x-5"><i class="mdui-icon material-icons">delete_forever</i></a>
+                </form>-->
+                <a href="javascript:location.reload();" class="mdui-btn mdui-btn-icon mdui-p-x-5"><i class="mdui-icon material-icons">refresh</i></a>
+            </div>
+        </div>
+        <div class="mdui-center mdui-p-t-3"  style="width:300px;height:80px" >
+        <form action="key" method="POST">
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <div style="float:left" >
+                <!--<label class="mdui-textfield-label">请输入关键词</label>-->
+                <input type="text" name="key" class="mdui-textfield-input" required/>
+                <div class="mdui-textfield-error">消息不能为空</div>
+                </div>
+                <div class="" style="float:left">
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-pink-accent" style="height:35px">关键词搜索</button>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="mdui-p-x-4 mdui-p-t-2 mdui-center" style="">
+                {% for post in posts %}
+            <div class="mdui-p-x-4 mdui-p-t-5" style="float:left">
+                <img src={{ post.msg }} width="204px" height="152px">
+            </div>
+                {% endfor %}
+        </div>
+    </body>
+</html>
